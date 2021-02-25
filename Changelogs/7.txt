@@ -1,0 +1,48 @@
+____Version 0.7.6____
+
+-Added randomly changing statuses.
+
+
+____Version 0.7.5____
+
+-Added !hardblock.
+-Added !clap.
+
+
+____Version 0.7.4____
+
+-Added embeds to messages.
+-Updated !ring.
+-Added !block / !unblock.
+-Added !embed.
+-Added !reverse.
+-Added !icon.
+
+
+____Version 0.7.3____
+
+-Removed !imgsearch because it could send NSFW content (We thought it had a filter).
+-Added some embeds to make commands look cleaner.
+-Fixed !hack command to use less edits.
+
+
+____Version 0.7.2____
+
+-Added crash prevention to !play, you can no longer crash UselessBot by entering an invalid link.
+
+
+____Version 0.7.1____
+
+-Fixed bug that would mistake !banana for !ban.
+
+
+____Version 0.7.0____
+
+**The Moderation Update**
+
+-Added !report.
+-Added !kick and !ban.
+-Added !mute and !deafen.
+-Added !disconnect.
+-Fixed !play and !vcsay commands.
+-Fixed other bugs that would cause UselessBot to crash.

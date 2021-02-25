@@ -1,0 +1,55 @@
+____Version 0.8.8____
+
+-Changed the join/leave card
+
+
+____Version 0.8.7____
+
+-Added !autorole command.
+
+
+____Version 0.8.6____
+
+-Changed FFmpeg priority to high to increase music quality on !play.
+
+
+____Version 0.8.5____
+
+-Added !credits command.
+
+
+____Version 0.8.4____
+
+-Added !time command which shows the current time in all time zones.
+
+
+____Version 0.8.3____
+
+-Fixed problem that would prevent some videos from being played with !play.
+-Increased audio quality for all voice channel commands.
+-The !play command gives more information about the requested video.
+
+
+____Version 0.8.2____
+
+-Added feature to !play that lets you search for songs.
+-Removed !rick command due to failing while testing.
+-Changed icon system for !play.
+
+
+____Version 0.8.1____
+
+-Fixed exploit that would let users ping @here or @everyone. This exploit only worked in servers that gave UselessBot administrator permissions or pinging permissions.
+
+
+____Version 0.8.0____
+
+**The Utility Update**
+
+-Added !kill
+-Added !setmute, !chmute, !chunmute.
+-Added !sru, a command that selects a random user from the server.
+-Added !setwelcome, a command that sets a channel for welcoming.
+-Updated !ring to give more information and to look cleaner.
+-Cleared changelog to take up less space.
+-Updated !help command

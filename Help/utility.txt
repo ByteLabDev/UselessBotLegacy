@@ -1,0 +1,17 @@
+!ascii - Turns text into ASCII art.
+!avatar - Shows a user's avatar.
+!block / !unblock - Blocks a user from ringing you with !ring.
+!caps - Turns your message into all caps
+!changelog - Shows recent changes.
+!choose - Helps you choose something.
+!embed - Make an embed.
+!hardblock - Disabled the !ring command
+!icon - Shows the server's icon.
+!invite - Send a DM with an invitation to the server and a link to add UselessBot to your server.
+!lowercase - Turns your message into all lowercase.
+!poll - Make a poll.
+!reverse - Sends your message in reverse.
+!ring - Ring a user.
+!setwelcome - Set a welcoming channel.
+!sru - Select a random user from the server.
+!stats - Shows your stats, the server's stats and UselessBot's stats.

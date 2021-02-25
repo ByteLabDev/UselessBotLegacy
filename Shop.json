@@ -1,0 +1,16 @@
+{
+    "computer": 10000,
+    "crate": 5000,
+    "phone": 1000,
+    "taxpass": 50000,
+    "gaming computer": 100000,
+    "robot": 200000,
+
+    "bronze": 10000,
+    "silver": 20000,
+    "platinum": 50000,
+    "ruby": 100000,
+    "diamond": 500000,
+    "emerald": 1000000,
+    "uselessstone": 10000000
+}

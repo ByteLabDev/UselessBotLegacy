@@ -1,0 +1,28 @@
+____Version 0.6.5____
+
+-Fixed the !play command.
+
+
+____Version 0.6.4____
+
+-Fixed !imgsearch.
+
+
+____Version 0.6.3____
+
+-Added the !ascii command.
+-Fixed the title system in the !play command. This will prevent frequent crashes.
+
+
+____Version 0.6.2____
+
+-Added customizable time for the !poll command.
+
+
+____Version 0.6.1____
+
+-Added changelog.
+-Updated !stats command.
+-Added UselessBot website to the !invite command.
+-Added the !poll command.
+-Added the !vcsay command back.

@@ -1,0 +1,38 @@
+Node version: v14.13.0
+Ready!
+Canvas launched!
+Activity set to Say !help for help.
+Unhandled Rejection at: RangeError: text length (251) should be less than 200 characters
+    at module.exports (C:\Users\Adems\UselessBot\node_modules\discord-tts\node_modules\google-tts-api\lib\api.js:18:11)
+    at module.exports (C:\Users\Adems\UselessBot\node_modules\discord-tts\node_modules\google-tts-api\index.js:17:10)
+    at downloadFromInfoCallback (C:\Users\Adems\UselessBot\node_modules\discord-tts\index.js:28:5)
+    at Object.getVoiceStream (C:\Users\Adems\UselessBot\node_modules\discord-tts\index.js:42:5)
+    at C:\Users\Adems\UselessBot\index.js:2087:37
+    at runMicrotasks (<anonymous>)
+    at processTicksAndRejections (internal/process/task_queues.js:93:5)
+Unhandled Rejection at: RangeError: text length (383) should be less than 200 characters
+    at module.exports (C:\Users\Adems\UselessBot\node_modules\discord-tts\node_modules\google-tts-api\lib\api.js:18:11)
+    at module.exports (C:\Users\Adems\UselessBot\node_modules\discord-tts\node_modules\google-tts-api\index.js:17:10)
+    at downloadFromInfoCallback (C:\Users\Adems\UselessBot\node_modules\discord-tts\index.js:28:5)
+    at Object.getVoiceStream (C:\Users\Adems\UselessBot\node_modules\discord-tts\index.js:42:5)
+    at C:\Users\Adems\UselessBot\index.js:2087:37
+    at runMicrotasks (<anonymous>)
+    at processTicksAndRejections (internal/process/task_queues.js:93:5)
+Unhandled Rejection at: RangeError: text length (253) should be less than 200 characters
+    at module.exports (C:\Users\Adems\UselessBot\node_modules\discord-tts\node_modules\google-tts-api\lib\api.js:18:11)
+    at module.exports (C:\Users\Adems\UselessBot\node_modules\discord-tts\node_modules\google-tts-api\index.js:17:10)
+    at downloadFromInfoCallback (C:\Users\Adems\UselessBot\node_modules\discord-tts\index.js:28:5)
+    at Object.getVoiceStream (C:\Users\Adems\UselessBot\node_modules\discord-tts\index.js:42:5)
+    at C:\Users\Adems\UselessBot\index.js:2087:37
+    at runMicrotasks (<anonymous>)
+    at processTicksAndRejections (internal/process/task_queues.js:93:5)
+Unhandled Rejection at: DiscordAPIError: Missing Permissions
+    at RequestHandler.execute (C:\Users\Adems\UselessBot\node_modules\discord.js\src\rest\RequestHandler.js:154:13)
+    at runMicrotasks (<anonymous>)
+    at processTicksAndRejections (internal/process/task_queues.js:93:5)
+    at async RequestHandler.push (C:\Users\Adems\UselessBot\node_modules\discord.js\src\rest\RequestHandler.js:39:14)
+Unhandled Rejection at: DiscordAPIError: Missing Permissions
+    at RequestHandler.execute (C:\Users\Adems\UselessBot\node_modules\discord.js\src\rest\RequestHandler.js:154:13)
+    at runMicrotasks (<anonymous>)
+    at processTicksAndRejections (internal/process/task_queues.js:93:5)
+    at async RequestHandler.push (C:\Users\Adems\UselessBot\node_modules\discord.js\src\rest\RequestHandler.js:39:14)

@@ -1,0 +1,52 @@
+Node version: v14.13.0
+Ready!
+Canvas launched!
+Activity set to Say !help for help.
+Unhandled Rejection at: ErrorEvent {
+  target: WebSocket {
+    _events: [Object: null prototype] {
+      open: [Function],
+      message: [Function],
+      close: [Function],
+      error: [Function]
+    },
+    _eventsCount: 4,
+    _maxListeners: undefined,
+    _binaryType: 'nodebuffer',
+    _closeCode: 1006,
+    _closeFrameReceived: false,
+    _closeFrameSent: false,
+    _closeMessage: '',
+    _closeTimer: null,
+    _extensions: {},
+    _protocol: '',
+    _readyState: 3,
+    _receiver: null,
+    _sender: null,
+    _socket: null,
+    _bufferedAmount: 0,
+    _isServer: false,
+    _redirects: 0,
+    _url: 'wss://eu-central551.discord.media/?v=4&encoding=json',
+    _req: null,
+    [Symbol(kCapture)]: false
+  },
+  type: 'error',
+  message: 'connect ECONNREFUSED 192.168.0.254:443',
+  error: Error: connect ECONNREFUSED 192.168.0.254:443
+      at TCPConnectWrap.afterConnect [as oncomplete] (net.js:1145:16) {
+    errno: -4078,
+    code: 'ECONNREFUSED',
+    syscall: 'connect',
+    address: '192.168.0.254',
+    port: 443
+  }
+}
+Restarting...
+Restarting...
+Restarting...
+Restarting...
+Restarting...
+Restarting...
+Restarting...
+Restarting...

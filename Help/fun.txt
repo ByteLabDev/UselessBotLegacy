@@ -1,0 +1,6 @@
+!clap - Puts a clapping emoji between each word.
+!hack - Hack your friends.
+!kill - Generate funny kill messages.
+!roast - Roast your friends.
+!rockpaperscissors - Play rock paper scissors.
+!say - Make UselessBot say anything.

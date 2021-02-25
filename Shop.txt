@@ -1,0 +1,40 @@
+____Consumable____
+
+**You can use these items with !use. - Non-refundable**
+
+Crate - $5000 - Gives you a random item.
+
+
+____Boosts____
+
+**These items give you boosts when earning money. - Non-refundable**
+
+Computer - $10000 - Lets you work more often. (1.5x boost)
+Phone - $1000 - Lets you work more often. (1.1x boost)
+TaxPass - $50000 - Lets you earn more money for your work by letting you pay less tax. (2x boost)
+Robot - $200000 - Helps you earn money by working with you. (5x boost)
+
+
+____Collectables____
+
+**You can only obtain these items with crates. You can sell these items with !sell.**
+
+Bitcoin - $35000
+Gold - $50000
+Rock - $100
+Shoe - $95
+Textbook - $500
+Wallet - $20000
+
+
+____Flexing____
+
+**These items are completely useless, but you can flex with them.**
+
+Bronze - $10000
+Siver - $20000
+Platinum - $50000
+Ruby - $100000
+Diamond - $500000
+Emerald - $1000000
+UselessStone - $10000000
