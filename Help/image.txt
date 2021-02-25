@@ -1,0 +1,12 @@
+!baby - Turns you into a baby.
+!birthday - Celebrate your friend's birthday.
+!cat - Shows pictures of cats.
+!cheese - Shows pictures of cheese.
+!coffin - Put your friends in a coffin.
+!dog - Shows pictures of dogs.
+!dollar - Adds you to the Dollar.
+!duck - Shows pictures of ducks.
+!facepalm - Makes you facepalm.
+!jail - Put your friends in jail.
+!pancake - Shows a picture of a pancake.
+!slap - Slap your friends.

@@ -1,0 +1,5 @@
+!balance - Check your balance.
+!beg - Beg for money.
+!give - Give money to your friends.
+!rob - Rob your friends.
+!work - Earn money.

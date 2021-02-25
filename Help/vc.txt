@@ -1,0 +1,3 @@
+!play - Play music in a voice channel.
+!stop - Disconnect UselessBot from the voice channel.
+!vcsay - Use text-to-speech in a voice channel.

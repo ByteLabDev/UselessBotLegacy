@@ -1,0 +1,29 @@
+client.on('message', msg=>{
+  if(msg.content.toLowerCase().startsWith("!imgsearch")){
+
+    let message = msg.content
+    const args = message.split(' ');
+     args.shift();
+    
+
+    ran=Math.floor(Math.random()*50)
+//console.log("Random search int: "+ran+" Keyword(s): "+args.join(' '))
+              var gis = require('g-i-s');
+          gis(args.join(' '), logResults);
+
+
+
+          function logResults(error, results) {
+            if (error) {
+              console.log(error);
+            }
+            else {
+              var ImgInfo = JSON.stringify(results, null, '  ')
+              res1=results[ran]
+              msg.channel.send(res1["url"])
+            }
+          }
+  }
+})
+
+//Removed because: it sends NSFW content

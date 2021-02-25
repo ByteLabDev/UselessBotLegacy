@@ -1,0 +1,12 @@
+!antilink - Prevents Discord links from being sent.
+!ban - Bans a user.
+!capsfilter - Filters all caps messages.
+!chmute / !chunmute - Stops a user from sending messages.
+!clear - Clear messages from the channel.
+!deafen / !undeafen - Deafen/Undeafen user in a voice channel.
+!disconnect - Disconnect a user from a voice channel.
+!kick - Kick a user from the server.
+!mute / !unmute - Mute/Unmute a user in a voice channel.
+!report - Report a user.
+!setmute - Set the mute role.
+!setreport - Set the reporting channel.

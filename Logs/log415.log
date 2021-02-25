@@ -1,0 +1,14 @@
+Node version: v14.13.0
+Ready!
+Canvas launched!
+Activity set to Type !help for help.
+{
+  "url": "https://ichef.bbci.co.uk/news/1024/cpsprodpb/83D7/production/_111515733_gettyimages-1208779325.jpg",
+  "width": 1024,
+  "height": 576
+}
+{
+  url: 'https://ichef.bbci.co.uk/news/1024/cpsprodpb/83D7/production/_111515733_gettyimages-1208779325.jpg',
+  width: 1024,
+  height: 576
+}
