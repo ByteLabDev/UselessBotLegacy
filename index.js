@@ -205,7 +205,7 @@ function createEmbed(color, name, desc){
 
 
 //Member Join
-Canvas.registerFont('./Uni Sans Heavy.otf', { family: 'Uni Sans' })
+//Canvas.registerFont('./Uni Sans Heavy.otf', { family: 'Uni Sans' })
 const applyText = (canvas, text) => {
 	const ctx = canvas.getContext('2d');
 	let fontSize = 70;
