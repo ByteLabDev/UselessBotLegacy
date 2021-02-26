@@ -92,7 +92,7 @@ process.on('unhandledRejection', error => {
 
 
 
-client.login(token); //LOGIN
+client.login(process.env.BOT_TOKEN); //LOGIN
 
 
 
@@ -205,8 +205,6 @@ function createEmbed(color, name, desc){
 
 
 //Member Join
-
-const Canvas = require('canvas');
 Canvas.registerFont('./Uni Sans Heavy.otf', { family: 'Uni Sans' })
 const applyText = (canvas, text) => {
 	const ctx = canvas.getContext('2d');
