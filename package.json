@@ -25,7 +25,6 @@
     "get-youtube-channel-id": "0.0.4",
     "get-youtube-id": "^1.0.1",
     "get-youtube-title": "^1.0.1",
-    "google-images": "^2.1.0",
     "google-translate-tts": "^0.2.0",
     "google-tts-api": "^2.0.0",
     "moment-timezone": "^0.5.32",
