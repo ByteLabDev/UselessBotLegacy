@@ -18,7 +18,6 @@
     "ascii": "^1.0.0",
     "ascii-art": "^2.5.0",
     "ascii-art-table": "^1.0.1",
-    "canvas": "^2.6.1",
     "cheerio": "^1.0.0-rc.5",
     "console-stamp": "^0.2.9",
     "discord-tts": "^1.0.3",
