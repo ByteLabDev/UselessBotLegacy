@@ -4,41 +4,25 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "node index.js"
+    "test": "echo \"Error: no test specified\" && exit 1"
   },
-  "engines": {
-    "node": "=14.13.0"
-},
   "author": "",
   "license": "ISC",
   "dependencies": {
-    "@vitalets/google-translate-api": "^3.0.0",
-    "cheerio": "^1.0.0-rc.5",
+    "canvas": "^2.6.1",
     "console-stamp": "^0.2.9",
     "discord-tts": "^1.0.3",
     "discord.js": "^12.5.1",
     "discord.js-poll-embed": "^1.0.2",
-    "eris": "^0.13.3",
     "figlet": "^1.5.0",
-    "get-video-id": "^3.1.4",
-    "get-youtube-channel-id": "0.0.4",
+    "get-video-id": "^3.1.9",
     "get-youtube-id": "^1.0.1",
     "get-youtube-title": "^1.0.1",
-    "google-translate-tts": "^0.2.0",
-    "google-tts-api": "^2.0.0",
-    "moment-timezone": "^0.5.32",
+    "moment-timezone": "^0.5.33",
     "node-fetch": "^2.6.1",
-    "node-notifier": "^8.0.0",
-    "request": "2.81.0",
+    "node-notifier": "^9.0.0",
     "say": "^0.16.0",
-    "youtube-search": "^1.1.4",
-    "youtube-search-api": "^1.0.8",
-    "youtube-validate": "^1.2.4",
-    "youtube-validator": "^1.1.2",
-    "yt-channel-info": "^1.2.0",
-    "yt-search": "^2.5.2",
-    "ytdl-core": "^4.4.5",
-    "ytsearcher": "^1.2.3"
+    "yt-search": "^2.7.3",
+    "ytdl-core": "^4.5.0"
   }
 }
