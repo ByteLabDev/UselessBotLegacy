@@ -1,5 +1,10 @@
 !balance - Check your balance.
 !beg - Beg for money.
+!buy - Buy items from the shop.
 !give - Give money to your friends.
+!inv / inventory - View your inventory.
 !rob - Rob your friends.
+!sell - Sell items from your inventory.
+!shop - View the shop.
+!use - Use an item from your inventory.
 !work - Earn money.
