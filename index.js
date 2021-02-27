@@ -10,25 +10,6 @@ const bot = new Discord.Client();
 const client = new Discord.Client({ ws: { intents: new Discord.Intents(Discord.Intents.ALL) }});
 
 
-const { ClientS } = require('pg');
-
-const clientS = new Client({
-  connectionString: process.env.DATABASE_URL,
-  ssl: {
-    rejectUnauthorized: false
-  }
-});
-
-clientS.connect();
-
-clientS.query('SELECT table_schema,table_name FROM information_schema.tables;', (err, res) => {
-  if (err) throw err;
-  for (let row of res.rows) {
-    console.log(JSON.stringify(row));
-  }
-  clientS.end();
-});
-
 const queue = new Map();
 
 client.once("ready", () => {
