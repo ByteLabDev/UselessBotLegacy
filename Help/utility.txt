@@ -4,6 +4,7 @@
 !caps - Turns your message into all caps
 !changelog - Shows recent changes.
 !choose - Helps you choose something.
+!credits - Shows the people who helped develop UselessBot.
 !embed - Make an embed.
 !hardblock - Disabled the !ring command
 !icon - Shows the server's icon.

@@ -3,6 +3,7 @@
 !cat - Shows pictures of cats.
 !cheese - Shows pictures of cheese.
 !coffin - Put your friends in a coffin.
+!crown - Put a crown on someone.
 !dog - Shows pictures of dogs.
 !dollar - Adds you to the Dollar.
 !duck - Shows pictures of ducks.

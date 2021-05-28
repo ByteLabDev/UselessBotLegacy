@@ -3,6 +3,7 @@ ____Consumable____
 **You can use these items with !use. - Non-refundable**
 
 Crate - $5000 - Gives you a random item.
+Lottery_Ticket - Earn or lose a random amount of money.
 
 
 ____Boosts____
@@ -20,9 +21,11 @@ ____Collectables____
 **You can only obtain these items with crates. You can sell these items with !sell.**
 
 Bitcoin - $35000
+Dirt - $100000
 Gold - $50000
 Rock - $100
 Shoe - $95
+Sand - $1
 Textbook - $500
 Wallet - $20000
 
@@ -37,4 +40,5 @@ Platinum - $50000
 Ruby - $100000
 Diamond - $500000
 Emerald - $1000000
-UselessStone - $10000000
+Poopium - $10000000
+UselessStone - $100000000

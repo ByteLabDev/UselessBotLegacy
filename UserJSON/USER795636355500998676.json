@@ -9,5 +9,15 @@
     "textbook": 0,
     "bitcoin": 0,
     "rock": 0,
-    "robot": 0
+    "robot": 0,
+    "lottery_ticket": 0,
+
+    "bronze": 0,
+    "silver": 0,
+    "platinum": 0,
+    "ruby": 0,
+    "diamond": 0,
+    "emerald": 0,
+    "uselessstone": 0
+    
 }

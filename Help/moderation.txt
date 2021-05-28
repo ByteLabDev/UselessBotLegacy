@@ -1,3 +1,4 @@
+!autorole - Sets a role to be assigned to new users.
 !antilink - Prevents Discord links from being sent.
 !ban - Bans a user.
 !capsfilter - Filters all caps messages.

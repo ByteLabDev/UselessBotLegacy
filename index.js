@@ -10,6 +10,13 @@ const bot = new Discord.Client();
 const client = new Discord.Client({ ws: { intents: new Discord.Intents(Discord.Intents.ALL) }});
 
 
+const express = require('express');
+const server = express();
+const keepAlive = require('./server.js');
+module.exports = keepAlive
+keepAlive()
+
+
 const queue = new Map();
 
 client.once("ready", () => {
@@ -46,21 +53,26 @@ const activities_list = [
 
 
   require('console-stamp')(console, 'HH:MM:ss');
-client.on('ready', () => {
+/*client.on('ready', () => {
   setInterval(() => {
       const index = Math.floor(Math.random() * (activities_list.length - 1) + 1); // generates a random number between 1 and the length of the activities array list (in this case 5).
       client.user.setActivity(activities_list[index]); // sets bot's activities to one of the phrases in the arraylist.
       //client.user.setPresence()
   }, 60000); // Runs this every 60 seconds.
-});
+});*/
 
-//client.once('ready', ()=>{
-  //activityStatus = fs.readFileSync("status.txt").toString()
-  //client.user.setActivity(activityStatus, { type: 'PLAYING' }, {url: 'https://discord.useless-bot.com/'})
-  //Default: Type !help for help.
-//.then(presence => console.log(`Activity set to ${presence.activities[0].name}`))
-//.catch(console.error);
-//})
+client.once('ready', ()=>{
+
+  setInterval(() =>{
+    client.user.setPresence({
+          status: 'online',
+          activity: {
+              name: `${client.guilds.cache.size} servers | !help`,
+              type: "WATCHING"
+          }
+      });
+    }, 5000)
+})
 
 console.log('Node version: '+ process.version)
 
@@ -132,7 +144,6 @@ function createEmbed(color, name, desc){
   .setColor(color)
   .setTitle(name)
   .setDescription(desc)
-  
 }
 
 
@@ -207,7 +218,7 @@ function createEmbed(color, name, desc){
 
 //Member Join
 //Canvas.registerFont('./Uni Sans Heavy.otf', { family: 'Uni Sans' })
-const applyText = (canvas, text) => {
+/*const applyText = (canvas, text) => {
 	const ctx = canvas.getContext('2d');
 	let fontSize = 70;
 
@@ -216,10 +227,10 @@ const applyText = (canvas, text) => {
 	} while (ctx.measureText(text).width > canvas.width - 300);
 
 	return ctx.font;
-};
+};*/
 
 
-
+/*
 client.on('guildMemberAdd', async member => {
 
 
@@ -260,7 +271,7 @@ client.on('guildMemberAdd', async member => {
 
   welcomeChannel.send(`Welcome to the server, ${member}!`, attachment);
   }
-});
+});*/
 
 
 
@@ -275,7 +286,7 @@ client.on('guildMemberAdd', async member => {
 
 
 
-
+/*
 client.on('guildMemberRemove', async member => {
   if(fs.existsSync('Channels/MemberLog/CHANNEL'+member.guild.id+'.txt')){
     channelID = fs.readFileSync('Channels/MemberLog/CHANNEL'+member.guild.id+'.txt').toString()
@@ -312,7 +323,7 @@ client.on('guildMemberRemove', async member => {
   welcomeChannel.send(`Goodbye, ${member}!`, attachment);
   }
 });
-
+*/
 
 
 
@@ -337,7 +348,7 @@ client.on('guildMemberRemove', async member => {
 //
 //
 
-var roasts = ["your closest friend is Siri.", "for a second I thoght you were Troom Troom.", "I thought I smelt dog crap. I realized it was your body odor.","your body odor is so strong that showering 3 times a day won't make a difference.", "you are so ugly that your parents accused the nurse of a mix-up when you were leaving the hospital.", "you are so ugly that it became illegal for you to be in a relationship.", "the only milestone you will ever achieve is the milestone of still being ugly with makeup on.", "you are the painful Lego piece people step on.", "your parents hated you so much that they changed your initials to a bad word.", "your face is so hideous that even the mirror decided to commit suicide.", "you are the definition of stupidity.", "you are the reason people get depression.", "I don't think I have seen anything scarier than your face.", "you are so hideous that even you hate yourself.", "mirrors bring you depression.", "your life is basically April Fools day.", "you are so stupid that your parents were replaced with a robot look-alike to end the suffering.", "if a robot sees you, I'm 99% sure it wont recognise you as a human.", "ERROR 276: Face too ugly. Remove face to fix problem.", "your face... It scares me!", "if someone tells you that they love you, just know that that's a lie.", "I wouldn't be surprised if people thought think that you have the face of a serial killer.", "you will always win a staring contest because other people won't be able to look at your face.", "you know how people cry when they look at onions? Well, I like to imagine the onions as your face.", "did you fall into the ocean? You smell like dead fish.", "you do realize that the gym is across the street, right?", "you seem like the type of person who would get sponsored by Raid Shadow Legends.", "you should take a shower once in a while.", "where are your roasts from? Wikipedia?", "your parents lived a happy life. Then you came.", "why do I keep cringing around you?", "You know you've reached a low point in life when a bot can roast better than you."];
+var roasts = ["your closest friend is Siri.", "I thought I smelt dog crap. I realized it was your body odor.","your body odor is so strong that showering 3 times a day won't make a difference.", "you are so ugly that your parents accused the nurse of a mix-up when you were leaving the hospital.", "you are so ugly that it became illegal for you to be in a relationship.", "the only milestone you will ever achieve is the milestone of still being ugly with makeup on.", "you are the painful Lego piece people step on.", "your parents hated you so much that they changed your initials to a bad word.", "your face is so hideous that even the mirror decided to commit suicide.", "you are the definition of stupidity.", "you are the reason people get depression.", "I don't think I have seen anything scarier than your face.", "you are so hideous that even you hate yourself.", "mirrors bring you depression.", "your life is basically April Fools day.", "you are so stupid that your parents were replaced with a robot look-alike to end the suffering.", "if a robot sees you, I'm 99% sure it wont recognise you as a human.", "ERROR 276: Face too ugly. Remove face to fix problem.", "your face... It scares me!", "if someone tells you that they love you, just know that that's a lie.", "I wouldn't be surprised if people think that you have the face of a serial killer.", "you will always win a staring contest because other people won't be able to look at your face.", "you know how people cry when they look at onions? Well, I like to imagine the onions as your face.", "did you fall into the ocean? You smell like dead fish.", "you do realize that the gym is across the street, right?", "you seem like the type of person who would get sponsored by Raid Shadow Legends.", "you should take a shower once in a while.", "where are your roasts from? Wikipedia?", "your parents lived a happy life. Then you came.", "why do I keep cringing around you?", "You know you've reached a low point in life when a bot can roast better than you.", "I would've roasted you but your face has already caused enough damage.", "your face is the most offensive thing this world has ever seen.", "your face can be the star of an award winning horror movie.", "I would rather go to a murderer's house than being five feet away from you."];
 
 client.on('message', msg=>{
   if (msg.author.bot) return;
@@ -362,7 +373,8 @@ client.on('message', msg=>{
  
 
 client.on('message', msg=>{
-  if (msg.author.bot) return;
+      if (msg.author.bot) return;
+    if (msg.channel.type === 'dm') return;
   if(msg.content.toLowerCase().startsWith("!hack")){
       const taggedUser = msg.mentions.users.first();
       if (msg.mentions.users.size) {
@@ -401,6 +413,8 @@ var dances = [{files: ["./Images/Dance/001.gif"]}, {files: ["./Images/Dance/003.
 var ducks = [{files: ["./Images/Ducks/002.jpg"]}, {files: ["./Images/Ducks/007.jpg"]}, {files: ["./Images/Ducks/008.gif"]}, {files: ["./Images/Ducks/010.gif"]}, {files: ["./Images/Ducks/011.gif"]}, {files: ["./Images/Ducks/012.gif"]}, {files: ["./Images/Ducks/013.gif"]}, {files: ["./Images/Ducks/014.gif"]}, {files: ["./Images/Ducks/015.gif"]}, {files: ["./Images/Ducks/016.gif"]}, {files: ["./Images/Ducks/017.gif"]}, {files: ["./Images/Ducks/018.gif"]}, {files: ["./Images/Ducks/019.gif"]}, {files: ["./Images/Ducks/020.gif"]}, {files: ["./Images/Ducks/021.gif"]}, {files: ["./Images/Ducks/022.gif"]}, ]
 client.on('message', msg=>{
   if (msg.content.toLowerCase() === "!dance"){
+        if (msg.author.bot) return;
+    if (msg.channel.type === 'dm') return;
     var dance = Math.floor(Math.random() * dances.length);
     msg.channel.send(dances[dance]);
   }
@@ -408,7 +422,8 @@ client.on('message', msg=>{
 
 
 client.on('message', msg=>{
-  if (msg.author.bot) return;
+      if (msg.author.bot) return;
+    if (msg.channel.type === 'dm') return;
   if (msg.content.toLowerCase() === "!duck"){
     var duck = Math.floor(Math.random() * ducks.length);
     msg.channel.send(ducks[duck]).catch()
@@ -419,7 +434,8 @@ client.on('message', msg=>{
 //    const taggedUser2 = msg.mentions.users.first(); = tagged user
 
 client.on('message', msg=>{
-  if (msg.author.bot) return;
+      if (msg.author.bot) return;
+    if (msg.channel.type === 'dm') return;
   if(msg.content.toLowerCase().startsWith("!hey")){
      msg.channel.send({files: ["./Sounds/HEY.mp3"]})
      msg.react('🇭')
@@ -431,7 +447,8 @@ client.on('message', msg=>{
 
 
 client.on('message', msg=>{
-  if (msg.author.bot) return;
+      if (msg.author.bot) return;
+    if (msg.channel.type === 'dm') return;
   if(msg.content.toLowerCase().startsWith("!avatar")){
     if (msg.mentions.users.size) {
     const taggedUseravatar = msg.mentions.users.first();
@@ -445,7 +462,8 @@ client.on('message', msg=>{
 })
 
 client.on('message', msg=>{
-  if (msg.author.bot) return;
+      if (msg.author.bot) return;
+    if (msg.channel.type === 'dm') return;
   if (msg.content.toLowerCase() === "!yeah"){
     msg.channel.send({files: ['./Videos/Vine Crazy kid hit in the head with basketball.mp4']})
     msg.react('🇾')
@@ -456,7 +474,8 @@ client.on('message', msg=>{
 })
 
 client.on('message', msg=>{
-  if (msg.author.bot) return;
+      if (msg.author.bot) return;
+    if (msg.channel.type === 'dm') return;
   if (msg.content.toLowerCase() === "!no"){
     msg.channel.send({files: ["./Videos/No.mp4"]})
     msg.react('🇳')
@@ -466,7 +485,8 @@ client.on('message', msg=>{
 
 
 client.on('message', msg=>{
-  if (msg.author.bot) return;
+      if (msg.author.bot) return;
+    if (msg.channel.type === 'dm') return;
   if (msg.content.toLowerCase() === "!banana"){
     msg.channel.send({files: ["./Videos/BANANANA.mp4"]})
     msg.react('🍌')
@@ -475,7 +495,8 @@ client.on('message', msg=>{
 
 
 client.on('message', msg=>{
-  if (msg.author.bot) return;
+      if (msg.author.bot) return;
+    if (msg.channel.type === 'dm') return;
   if (msg.content.toLowerCase() === "!stonks"){
     msg.channel.send({files: ["./Images/stonks.jpg"]})
     msg.react('📈')
@@ -483,7 +504,8 @@ client.on('message', msg=>{
 })
 
 client.on('message', msg=>{
-  if (msg.author.bot) return;
+      if (msg.author.bot) return;
+    if (msg.channel.type === 'dm') return;
   if(msg.content.toLowerCase() === "!watermelon"){
     msg.channel.send({files: ["./Videos/WOTORMELONE.mp4"]})
     msg.react('🍉')
@@ -505,7 +527,8 @@ tictactoelost = 0
 tictactoetied = 0
 
 client.on('message', msg=>{
-  if (msg.author.bot) return;
+      if (msg.author.bot) return;
+    if (msg.channel.type === 'dm') return;
   if(msg.content.toLowerCase().startsWith('!rockpaperscissors')){
     var rps = ["rock", "paper", "scissors"]
     var rpschoice = Math.floor(Math.random() * rps.length);
@@ -580,7 +603,8 @@ const { Z_FIXED } = require("zlib");
 
 
 client.on('message', msg=>{
-  if (msg.author.bot) return;
+      if (msg.author.bot) return;
+    if (msg.channel.type === 'dm') return;
   if(msg.content.toLowerCase() === "!help"){
     const UBE = client.emojis.cache.get("789465915137327144");
     helpembed1 = new Discord.MessageEmbed()
@@ -588,18 +612,20 @@ client.on('message', msg=>{
     .setTitle("Choose what commands you need help with:")
     .setDescription(`**
     :moneybag:  !help economy
-    :smile:   !help fun
+    :smile:  !help fun
     :camera:  !help image
-    :rofl:  !help meme⠀⠀ 
-    🛡️  !help moderation  
-    :toolbox:  !help utility 
-    :telephone:  !help vc**`)
+    :rofl:  !help meme
+    :shield:  !help moderation
+    :toolbox:  !help utility
+    :telephone:  !help vc
+    **`)
     msg.channel.send(helpembed1)
   }
 })
 
 client.on('message', msg=>{
-  if (msg.author.bot) return;
+      if (msg.author.bot) return;
+    if (msg.channel.type === 'dm') return;
   if(msg.content.toLowerCase() === "!help meme"){
     helpList = fs.readFileSync('Help/meme.txt').toString()
     helpembed2 = new Discord.MessageEmbed()
@@ -617,7 +643,8 @@ client.on('message', msg=>{
 
 
 client.on('message', msg=>{
-  if (msg.author.bot) return;
+      if (msg.author.bot) return;
+    if (msg.channel.type === 'dm') return;
   if(msg.content.toLowerCase() === "!help economy"){
     helpList = fs.readFileSync('Help/economy.txt').toString()
     helpembed3 = new Discord.MessageEmbed()
@@ -630,7 +657,8 @@ client.on('message', msg=>{
 
 
 client.on('message', msg=>{
-  if (msg.author.bot) return;
+      if (msg.author.bot) return;
+    if (msg.channel.type === 'dm') return;
   if(msg.content.toLowerCase() === "!help image"){
     helpList = fs.readFileSync('Help/image.txt').toString()
     helpembed4 = new Discord.MessageEmbed()
@@ -642,7 +670,8 @@ client.on('message', msg=>{
 })
 
 client.on('message', msg=>{
-  if (msg.author.bot) return;
+      if (msg.author.bot) return;
+    if (msg.channel.type === 'dm') return;
   if(msg.content.toLowerCase() === "!help utility"){
     helpList = fs.readFileSync('Help/utility.txt').toString()
     helpembed5 = new Discord.MessageEmbed()
@@ -655,7 +684,8 @@ client.on('message', msg=>{
 
 
 client.on('message', msg=>{
-  if (msg.author.bot) return;
+      if (msg.author.bot) return;
+    if (msg.channel.type === 'dm') return;
   if(msg.content.toLowerCase() === "!help vc"){
     helpList = fs.readFileSync('Help/vc.txt').toString()
     helpembed6 = new Discord.MessageEmbed()
@@ -671,7 +701,8 @@ client.on('message', msg=>{
 
 
 client.on('message', msg=>{
-  if (msg.author.bot) return;
+      if (msg.author.bot) return;
+    if (msg.channel.type === 'dm') return;
   if(msg.content.toLowerCase() === "!help fun"){
     helpList = fs.readFileSync('Help/fun.txt').toString()
     helpembed7 = new Discord.MessageEmbed()
@@ -683,7 +714,8 @@ client.on('message', msg=>{
 })
 
 client.on('message', msg=>{
-  if (msg.author.bot) return;
+      if (msg.author.bot) return;
+    if (msg.channel.type === 'dm') return;
   if(msg.content.toLowerCase() === "!help moderation"){
     helpList = fs.readFileSync('Help/moderation.txt').toString()
     helpembed7 = new Discord.MessageEmbed()
@@ -699,7 +731,8 @@ client.on('message', msg=>{
 
 
 client.on("message", msg => {
-  if (msg.author.bot) return;
+      if (msg.author.bot) return;
+    if (msg.channel.type === 'dm') return;
   if (msg.content.toLowerCase().startsWith("!clear")) {
     if (msg.channel instanceof Discord.DMChannel){
       msg.reply(DmError)
@@ -736,7 +769,8 @@ client.on("message", msg => {
     var dogs = [{files:["./Images/CuteDogs/001.jpg"]}, {files:["./Images/CuteDogs/002.jpg"]}, {files:["./Images/CuteDogs/003.jpg"]}, {files:["./Images/CuteDogs/004.jpg"]}, {files:["./Images/CuteDogs/005.jpg"]}, {files:["./Images/CuteDogs/006.jpg"]}, {files:["./Images/CuteDogs/007.jpg"]}, {files:["./Images/CuteDogs/008.jpg"]}, {files:["./Images/CuteDogs/009.jpg"]}, {files:["./Images/CuteDogs/010.jpg"]}, {files:["./Images/CuteDogs/011.jpg"]}, {files:["./Images/CuteDogs/012.jpg"]}, {files:["./Images/CuteDogs/013.jpg"]}, {files:["./Images/CuteDogs/014.jpg"]}, {files:["./Images/CuteDogs/015.jpg"]}, {files:["./Images/CuteDogs/016.jpg"]}, {files:["./Images/CuteDogs/017.jpg"]}, {files:["./Images/CuteDogs/018.jpg"]}, {files:["./Images/CuteDogs/019.jpg"]}, {files:["./Images/CuteDogs/020.jpg"]}, {files:["./Images/CuteDogs/021.jpg"]}]
 
     client.on('message', msg=>{
-      if (msg.author.bot) return;
+          if (msg.author.bot) return;
+    if (msg.channel.type === 'dm') return;
       var dog = Math.floor(Math.random() * dogs.length);
       if(msg.content.toLowerCase() === "!dog"){
         msg.channel.send(dogs[dog])
@@ -746,7 +780,8 @@ client.on("message", msg => {
 
 
     client.on('message', msg=>{
-      if (msg.author.bot) return;
+          if (msg.author.bot) return;
+    if (msg.channel.type === 'dm') return;
       var cat = Math.floor(Math.random() * cats.length);
       if(msg.content.toLowerCase() === "!cat"){
         msg.channel.send(cats[cat])
@@ -761,9 +796,10 @@ client.on("message", msg => {
 
 
 
-
+/*
 client.on('message', async msg=>{
-  if (msg.author.bot) return;
+      if (msg.author.bot) return;
+    if (msg.channel.type === 'dm') return;
   if(msg.content.toLowerCase().startsWith('!birthday')){
     if(msg.mentions.users.size){
     const taggedUseravatarslap = msg.mentions.users.first();
@@ -792,6 +828,7 @@ client.on('message', async msg=>{
   }
 }
 })
+*/
 
 
 
@@ -807,10 +844,10 @@ client.on('message', async msg=>{
 
 
 
-
-
+/*
 client.on('message', async msg=>{
-  if (msg.author.bot) return;
+      if (msg.author.bot) return;
+    if (msg.channel.type === 'dm') return;
   if(msg.content.toLowerCase().startsWith("!slap")){
     if (msg.mentions.users.size) {
       const taggedUseravatarslap = msg.mentions.users.first();
@@ -891,45 +928,12 @@ client.on('message', async msg=>{
     }
   }
 })
+*/
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+/*
 client.on('message', async msg=>{
-  if (msg.author.bot) return;
+     if (msg.author.bot) return;
+    if (msg.channel.type === 'dm') return;
   if(msg.content.toLowerCase().startsWith("!jail")){
     if (msg.mentions.users.size) {
       const taggedUseravatarslap = msg.mentions.users.first();
@@ -1011,15 +1015,16 @@ client.on('message', async msg=>{
     }
   }
 })
+*/
 
 
 
 
 
-
-
+/*
 client.on('message', async msg=>{
-  if (msg.author.bot) return;
+      if (msg.author.bot) return;
+    if (msg.channel.type === 'dm') return;
   if(msg.content.toLowerCase().startsWith("!coffin")){
     if (msg.mentions.users.size) {
       const taggedUseravatarslap = msg.mentions.users.first();
@@ -1100,34 +1105,12 @@ client.on('message', async msg=>{
     }
   }
 })
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+*/
 
 
 client.on('message', msg=>{
+      if (msg.author.bot) return;
+    if (msg.channel.type === 'dm') return;
   if(msg.content.toLowerCase().startsWith('!caps')){
     if(!msg.content.toLowerCase().startsWith("!capsfilter")){
     if (msg.author.bot) return;
@@ -1154,7 +1137,8 @@ client.on('message', msg=>{
 
 client.on('message', msg=>{
   if(msg.content.toLowerCase().startsWith('!lowercase')){
-    if (msg.author.bot) return;
+        if (msg.author.bot) return;
+    if (msg.channel.type === 'dm') return;
     let message = msg.content
     const args = message.split(' ');
      args.shift();
@@ -1175,22 +1159,10 @@ client.on('message', msg=>{
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
 client.on('message', msg=>{
   if(msg.content.toLowerCase().startsWith("!choose")){
-    if (msg.author.bot) return;
+        if (msg.author.bot) return;
+    if (msg.channel.type === 'dm') return;
     let message = msg.content
     const args = message.split(' ');
      args.shift();
@@ -1217,7 +1189,8 @@ client.on('message', msg=>{
 
 client.on('message', msg=>{
   if(msg.content.toLowerCase().startsWith("!say")){
-    if (msg.author.bot) return;
+        if (msg.author.bot) return;
+    if (msg.channel.type === 'dm') return;
     //if(msg.content.toLowerCase().split("!say").length - 1 >= 2){
       //msg.reply("Seems like you're trying to spam, but this won't work :)")
     //}else{
@@ -1239,23 +1212,18 @@ client.on('message', msg=>{
 
 client.on('message', msg=>{
   if(msg.content.toLowerCase() === "!pancake"){
-    if (msg.author.bot) return;
+        if (msg.author.bot) return;
+    if (msg.channel.type === 'dm') return;
     msg.channel.send({files: ["./Images/Pancake.jpg"]})
     msg.react('🥞')
   }
 })
 
-
-
-
-
-
-
-
-
+/*
 client.on('message', async msg=>{
   if(msg.content.toLowerCase().startsWith("!facepalm")){
-    if (msg.author.bot) return;
+        if (msg.author.bot) return;
+    if (msg.channel.type === 'dm') return;
     if(msg.mentions.users.size){
       const taggedUseravatarslap = msg.mentions.users.first();
         const canvas = Canvas.createCanvas(331, 238);
@@ -1283,13 +1251,13 @@ client.on('message', async msg=>{
     }
     })
 
+*/
 
 
 
 
 
-
-
+/*
     client.on('message', async msg=>{
       if(msg.content.toLowerCase().startsWith("!dollar")){
         if (msg.author.bot) return;
@@ -1324,7 +1292,9 @@ client.on('message', async msg=>{
           }
         })
 
+*/
 
+/*
 
 
         client.on('message', async msg=>{
@@ -1359,6 +1329,11 @@ client.on('message', async msg=>{
             })
 
 
+
+
+
+
+*/
 
 
 
@@ -1405,64 +1380,18 @@ client.on('message', msg=>{
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 client.on('message', msg=>{
   if(msg.content.toLowerCase() === "!cheese"){
-    if (msg.author.bot) return;
+            if (msg.author.bot) return;
+    if (msg.channel.type === 'dm') return;
     msg.channel.send({files: ["./Images/Cheese.jpg"]})
   }
 })
 
 client.on('message', msg=>{
   if(msg.content.toLowerCase() === "!createaccount"){
-    if (msg.author.bot) return;
+            if (msg.author.bot) return;
+    if (msg.channel.type === 'dm') return;
     fs.writeFileSync('User_Data/USER'+msg.author.id+'.txt', '100', function (err) {
       if (err) return console.log(err);
       console.log(err);
@@ -1473,8 +1402,11 @@ client.on('message', msg=>{
 
 const beggedRecently = new Set();
 client.on('message', msg=>{
+          if (msg.author.bot) return;
+    if (msg.channel.type === 'dm') return;
   if(msg.content.toLowerCase() === "!beg"){
-    if (msg.author.bot) return;
+            if (msg.author.bot) return;
+    if (msg.channel.type === 'dm') return;
 
 
     if (beggedRecently.has(msg.author.id)) {
@@ -1504,6 +1436,8 @@ client.on('message', msg=>{
 })
 
 client.on('message', msg=>{
+          if (msg.author.bot) return;
+    if (msg.channel.type === 'dm') return;
   if(msg.content.toLowerCase().startsWith("!bal") || msg.content.toLowerCase().startsWith("!balance")){
     if (msg.author.bot) return;
     if(!msg.mentions.users.size){
@@ -1534,6 +1468,8 @@ client.on('message', msg=>{
 
 
 client.on('message', msg=>{
+          if (msg.author.bot) return;
+    if (msg.channel.type === 'dm') return;
   if(msg.content.toLowerCase().startsWith("!give")){
     if (msg.author.bot) return;
     if(msg.content.toLowerCase().startsWith("!give ")){
@@ -1624,6 +1560,8 @@ client.on('message', msg=>{
 
 const robbedRecently = new Set();
 client.on('message', msg=>{
+          if (msg.author.bot) return;
+    if (msg.channel.type === 'dm') return;
   if(msg.content.toLowerCase().startsWith("!rob")){
     if (msg.author.bot) return;
     if(fs.existsSync('User_Data/USER'+msg.author.id+'.txt')){
@@ -1714,6 +1652,8 @@ client.on('message', msg=>{
 
 const talkedRecently = new Set();
 client.on('message', msg=>{
+          if (msg.author.bot) return;
+    if (msg.channel.type === 'dm') return;
   if (msg.author.bot) return;
   if(msg.content.toLowerCase().startsWith("!ring")){
     if(msg.channel instanceof Discord.DMChannel){
@@ -1813,8 +1753,10 @@ client.on('message', msg=>{
 
 var http = require('http');
 
+//!play
 client.on('message', async message => {
-  if (message.author.bot) return;
+          if (message.author.bot) return;
+    if (message.channel.type === 'dm') return;
 	if (message.content.toLowerCase().startsWith('!play') | message.content.toLowerCase().startsWith('!p ')) {
     if (message.channel.type === 'dm') return;
     let msgurl = message.content
@@ -1906,6 +1848,8 @@ fetch(userPFP, settings)
 
 
 client.on('message', msg=>{
+          if (msg.author.bot) return;
+    if (msg.channel.type === 'dm') return;
   if(msg.content.toLowerCase() === "!stop"){
     if (msg.author.bot) return;
     if (msg.channel instanceof Discord.DMChannel){
@@ -1925,7 +1869,8 @@ client.on('message', msg=>{
 
 
 client.on('message', msg=>{
-  if (msg.author.bot) return;
+          if (msg.author.bot) return;
+    if (msg.channel.type === 'dm') return;
   if(msg.content.toLowerCase() === "!stats"){
     if (msg.channel instanceof Discord.DMChannel){
       msg.reply(DmError)
@@ -1969,6 +1914,7 @@ client.on('message', msg=>{
     
 
     Servers: ${client.guilds.cache.size}
+    Members: ${client.guilds.cache.reduce((a, g) => a + g.memberCount, 0)}
     Node version: ${process.version}
     UselessBot version: ${BotVersion}
     `)
@@ -1997,7 +1943,8 @@ const yts = require( 'yt-search' )
 
 
 client.on('message', msg=>{
-  if (msg.author.bot) return;
+          if (msg.author.bot) return;
+    if (msg.channel.type === 'dm') return;
   if(msg.content.toLowerCase() === "!invite"){
     if(msg.channel instanceof Discord.DMChannel){
       msg.reply(DmError)
@@ -2026,7 +1973,8 @@ Invite me to a server: <https://discord.useless-bot.com>`).catch(error=>{
 
 
 client.on('message', msg=>{
-  if (msg.author.bot) return;
+          if (msg.author.bot) return;
+    if (msg.channel.type === 'dm') return;
   if(msg.content.toLowerCase() === "!changelog"){
     Changelog = fs.readFileSync('Changelog.txt')
     C_embed = new Discord.MessageEmbed()
@@ -2038,9 +1986,10 @@ client.on('message', msg=>{
 
 
 
-
+//!poll
 client.on('message', msg=>{
-  if (msg.author.bot) return;
+          if (msg.author.bot) return;
+    if (msg.channel.type === 'dm') return;
   if(msg.content.toLowerCase().startsWith("!poll")){
     // Import the discord.js-pagination package
 const pollEmbed = require('discord.js-poll-embed');
@@ -2083,7 +2032,8 @@ const { getInstalledVoices } = require("say");
 
 
 client.on("message",msg=>{
-  if (msg.author.bot) return;
+          if (msg.author.bot) return;
+    if (msg.channel.type === 'dm') return;
   if(msg.content.toLowerCase().startsWith("!vcsay")){
     if (msg.channel instanceof Discord.DMChannel){
       msg.reply(DmError)
@@ -2132,7 +2082,8 @@ const { getInfo } = require("ytdl-core");
 const { now, min } = require("moment-timezone");
 
 client.on('message', msg=>{
-  if (msg.author.bot) return;
+          if (msg.author.bot) return;
+    if (msg.channel.type === 'dm') return;
   if(msg.content.toLowerCase().startsWith("!ascii")){
 
     let message = msg.content
@@ -2154,7 +2105,7 @@ client.on('message', msg=>{
 suicidekey=["suicide", "kill myself", "want to die"]
 
 function detsui(value) {
-  var prohibited = ['banana', 'apple'];
+  //var prohibited = ['banana', 'apple'];
 
   for (var i = 0; i < suicidekey.length; i++) {
     if (value.indexOf(suicidekey[i]) > -1) {
@@ -2164,20 +2115,40 @@ function detsui(value) {
   return true;
 }
 
-
+const recentMessage = new Set();
 client.on('message', msg=>{
 
   if(detsui(msg.content.toLowerCase()) === false){
     if (msg.author.bot) return;
     if(msg.author.id==="739251643425620019"){
     }else{
-    msg.reply("If you are feeling suicidal, please call a suicide hotline! You are an amazing person and there are people who care about you! http://www.suicide.org/international-suicide-hotlines.html https://suicidepreventionlifeline.org")
+      if(recentMessage.has(msg.author.id)){
+      }else{
+      var mainEmbed = new Discord.MessageEmbed()
+.setTitle("If you are thinking about self harm, please call a suicide hotline! You are an amazing person and there are people who care about you!") 
+.setURL("http://www.suicide.org/international-suicide-hotlines.html")
+.setDescription("Click on the text above or go to the following link for a list of international suicide hotlines. http://www.suicide.org/international-suicide-hotlines.html")
+.setColor("0x2e89ff")
+
+msg.author.send(mainEmbed).catch(err=>{
+  msg.channel.send(mainEmbed)
+})
+recentMessage.add(msg.author.id);
+
+
+  setTimeout(() => {
+    recentMessage.delete(msg.author.id);
+  }, 300000);
+
+
+  }
   }
   }
 })
 
 client.on('message', msg=>{
-  if (msg.author.bot) return;
+          if (msg.author.bot) return;
+    if (msg.channel.type === 'dm') return;
   if(msg.content.toLowerCase().startsWith("!report")){
     if (msg.channel instanceof Discord.DMChannel){
       msg.reply(DmError)
@@ -2228,7 +2199,8 @@ client.on('message', msg=>{
 })
 
 client.on('message', msg=>{
-  if (msg.author.bot) return;
+          if (msg.author.bot) return;
+    if (msg.channel.type === 'dm') return;
   if(msg.content.toLowerCase().startsWith("!kick")){
     if (msg.channel instanceof Discord.DMChannel){
       msg.reply(DmError)
@@ -2260,7 +2232,8 @@ client.on('message', msg=>{
 })
 
 client.on('message', msg=>{
-  if (msg.author.bot) return;
+          if (msg.author.bot) return;
+    if (msg.channel.type === 'dm') return;
   if(msg.content.toLowerCase().startsWith("!ban")){
     if(msg.content.toLowerCase().startsWith("!banana")){
     }else{
@@ -2294,7 +2267,8 @@ client.on('message', msg=>{
 })
 
 client.on('message', msg=>{
-  if (msg.author.bot) return;
+          if (msg.author.bot) return;
+    if (msg.channel.type === 'dm') return;
   if(msg.content.toLowerCase().startsWith("!mute")){
     if (msg.channel instanceof Discord.DMChannel){
       msg.reply(DmError)
@@ -2315,7 +2289,8 @@ client.on('message', msg=>{
 })
 
 client.on('message', msg=>{
-  if (msg.author.bot) return;
+          if (msg.author.bot) return;
+    if (msg.channel.type === 'dm') return;
   if(msg.content.toLowerCase().startsWith("!unmute")){
     if (msg.channel instanceof Discord.DMChannel){
       msg.reply(DmError)
@@ -2336,7 +2311,8 @@ client.on('message', msg=>{
 })
 
 client.on('message', msg=>{
-  if (msg.author.bot) return;
+          if (msg.author.bot) return;
+    if (msg.channel.type === 'dm') return;
   if(msg.content.toLowerCase().startsWith("!deafen")){
     if (msg.channel instanceof Discord.DMChannel){
       msg.reply(DmError)
@@ -2357,7 +2333,8 @@ client.on('message', msg=>{
 })
 
 client.on('message', msg=>{
-  if (msg.author.bot) return;
+          if (msg.author.bot) return;
+    if (msg.channel.type === 'dm') return;
   if(msg.content.toLowerCase().startsWith("!undeafen")){
     if (msg.channel instanceof Discord.DMChannel){
       msg.reply(DmError)
@@ -2378,7 +2355,8 @@ client.on('message', msg=>{
 })
 
 client.on('message', msg=>{
-  if (msg.author.bot) return;
+          if (msg.author.bot) return;
+    if (msg.channel.type === 'dm') return;
   if(msg.content.toLowerCase().startsWith("!disconnect")){
     if (msg.channel instanceof Discord.DMChannel){
       msg.reply(DmError)
@@ -2399,7 +2377,8 @@ client.on('message', msg=>{
 })
 
 client.on('message', msg=>{
-  if (msg.author.bot) return;
+          if (msg.author.bot) return;
+    if (msg.channel.type === 'dm') return;
   if(msg.content.toLowerCase() === "!setreports"){
     if (msg.channel.type === 'dm') return;
     if(msg.member.hasPermission('MANAGE_GUILD')){
@@ -2424,7 +2403,8 @@ client.on('message', msg=>{
 
 
 client.on('message', msg=>{
-  if (msg.author.bot) return;
+          if (msg.author.bot) return;
+    if (msg.channel.type === 'dm') return;
   if(!fs.existsSync('UserLevels/USER'+msg.author.id+'.txt')){
     fs.writeFileSync('UserLevels/USER'+msg.author.id+'.txt', '1', function (err) {
       if (err) return console.log(err);
@@ -2444,7 +2424,8 @@ client.on('message', msg=>{
 
 const workedRecently = new Set();
 client.on('message', msg=>{
-  if (msg.author.bot) return;
+          if (msg.author.bot) return;
+    if (msg.channel.type === 'dm') return;
   if(msg.content.toLowerCase() === "!work"){
 
 
@@ -2555,7 +2536,8 @@ b1 = 1
 
 
 client.on('message', msg=>{
-  if (msg.author.bot) return;
+          if (msg.author.bot) return;
+    if (msg.channel.type === 'dm') return;
   if(msg.content.toLowerCase().startsWith("!icon")){
     if (msg.channel instanceof Discord.DMChannel){
     msg.reply(DmError)
@@ -2580,7 +2562,8 @@ function reverseString(str) {
 
 
 client.on('message', msg=>{
-  if (msg.author.bot) return;
+          if (msg.author.bot) return;
+    if (msg.channel.type === 'dm') return;
   let message = msg.content
   const args = message.split(' ');
    args.shift();
@@ -2597,7 +2580,8 @@ client.on('message', msg=>{
 })
 
 client.on('message', msg=>{
-  if (msg.author.bot) return;
+          if (msg.author.bot) return;
+    if (msg.channel.type === 'dm') return;
   if(msg.content.toLowerCase().startsWith('!embed')){
     let message = msg.content
     const args = message.split(' ');
@@ -2616,6 +2600,8 @@ client.on('message', msg=>{
 
 
 client.on('message', msg=>{
+          if (msg.author.bot) return;
+    if (msg.channel.type === 'dm') return;
   if(msg.content.toLowerCase().startsWith("!block")){
     if(msg.mentions.users.size){
       const taggedUser = msg.mentions.users.first();
@@ -2649,6 +2635,8 @@ client.on('message', msg=>{
 })
 
 client.on('message', msg=>{
+          if (msg.author.bot) return;
+    if (msg.channel.type === 'dm') return;
   if(msg.content.toLowerCase().startsWith("!unblock")){
     if(msg.mentions.users.size){
       const taggedUser = msg.mentions.users.first()
@@ -2683,7 +2671,7 @@ client.on("error", () => { client.login(token) });
 //})
 
 
-
+//antilink
 client.on('message', msg=>{
   if (msg.author.bot) return;
   if (msg.channel.type === 'dm') return;
@@ -2737,7 +2725,8 @@ client.on('message', msg=>{
 
 
 client.on('message', msg => { //whenever a message is sent
-  if (msg.channel.type === 'dm') return;
+          if (msg.author.bot) return;
+    if (msg.channel.type === 'dm') return;
   if (msg.content.includes('discord.gg/'||'discordapp.com/invite/')) { //if it contains an invite link
     if(fs.existsSync('LinkFilter/SERVER'+msg.guild.id+'.txt')){
     msg.delete() //delete the message
@@ -2748,7 +2737,8 @@ client.on('message', msg => { //whenever a message is sent
 
 
 client.on('message', msg=>{
-  if (msg.author.bot) return;
+          if (msg.author.bot) return;
+    if (msg.channel.type === 'dm') return;
   if(msg.content.toLowerCase().startsWith("!clap")){
     let message = msg.content
     let args = message.split(' ')
@@ -2763,6 +2753,7 @@ client.on('message', msg=>{
   }
 })
 
+//Hardblock
 client.on('message', msg=>{
   if (msg.channel.type === 'dm') return;
   if (msg.author.bot) return;
@@ -2826,7 +2817,8 @@ client.on('message', msg=>{
 
 
 client.on('message', msg=>{
-  if (msg.author.bot) return;
+          if (msg.author.bot) return;
+    if (msg.channel.type === 'dm') return;
   if(msg.content.toLowerCase() === "!setwelcome"){
     if (msg.channel.type === 'dm') return;
     if(msg.member.hasPermission('MANAGE_GUILD')){
@@ -2879,6 +2871,8 @@ client.on('message', msg=>{
 
 
 client.on('message', msg=>{
+          if (msg.author.bot) return;
+    if (msg.channel.type === 'dm') return;
   if(msg.content.toLowerCase().startsWith("!chmute")){
     if(msg.member.hasPermission('MANAGE_ROLES')){
       if(msg.guild.me.hasPermission('MANAGE_ROLES')){
@@ -2913,6 +2907,8 @@ client.on('message', msg=>{
 })
 
 client.on('message', msg=>{
+          if (msg.author.bot) return;
+    if (msg.channel.type === 'dm') return;
   if(msg.content.toLowerCase().startsWith("!chunmute")){
     if(msg.member.hasPermission('MANAGE_ROLES')){
       if(msg.guild.me.hasPermission('MANAGE_ROLES')){
@@ -2949,6 +2945,8 @@ client.on('message', msg=>{
 
 
 client.on('message', msg=>{
+          if (msg.author.bot) return;
+    if (msg.channel.type === 'dm') return;
   if(msg.content.toLowerCase().startsWith("!kill")){
     if(msg.mentions.users.size){
       var taggedUser = msg.mentions.users.first()
@@ -2962,9 +2960,10 @@ client.on('message', msg=>{
 
 
 
-
+/*
 client.on('message', async msg=>{
-  if (msg.author.bot) return;
+          if (msg.author.bot) return;
+    if (msg.channel.type === 'dm') return;
   if(msg.content.toLowerCase().startsWith('!crown')){
     if(msg.mentions.users.size){
     const taggedUseravatarslap = msg.mentions.users.first();
@@ -2987,7 +2986,7 @@ client.on('message', async msg=>{
   }
 }
 })
-
+*/
 
 
 
@@ -2995,12 +2994,14 @@ client.on('message', async msg=>{
 
 
 client.on('message', msg=>{
+          if (msg.author.bot) return;
+    if (msg.channel.type === 'dm') return;
   if(msg.content.toLowerCase().startsWith("!use")){
   let message = msg.content
   let args = message.split(' ');
   args.shift();
   su = args.join(' ').toLowerCase()
-  if(su != "crate"){
+  if(su != "crate" && !su.startsWith("lottery")){
     createEmbed("#E5453D", "Error", `Unknown item. Please use the command with an item with the tag: **Consumable**.`)
     msg.channel.send(mainEmbed)
   }
@@ -3017,6 +3018,8 @@ function writeSync(directory, value){
 }
 
 client.on('message', msg=>{
+  if (msg.author.bot) return;
+    if (msg.channel.type === 'dm') return;
   if(msg.content.toLowerCase() === "!use crate"){
     function useCrate(){
     if(fs.existsSync('UserJSON/USER'+msg.author.id+'.json')){
@@ -3026,19 +3029,19 @@ client.on('message', msg=>{
           var newVal = parseInt(cratecount) - 1
 
 
-        let types = ["Common", "Common", "Common", "Common", "Common", "Common", "Common", "Common", "Common", "Common", "Common", "Common", "Common", "Common", "Common", "Uncommon", "Uncommon", "Uncommon", "Uncommon", "Uncommon", "Uncommon", "Uncommon", "Uncommon", "Uncommon", "Uncommon", "Rare", "Rare", "Rare", "Rare", "Rare", "Ultra Rare", "Ultra Rare", "Legendary"]
+        let types = ["Common", "Common", "Common", "Common", "Common", "Common", "Common", "Common", "Common", "Common", "Common", "Common", "Common","Common","Common","Common","Common","Common","Common","Common","Common","Common","Common","Common","Common","Common", "Common", "Common", "Uncommon", "Uncommon", "Uncommon","Uncommon","Uncommon","Uncommon","Uncommon", "Uncommon", "Uncommon", "Uncommon", "Uncommon", "Uncommon", "Uncommon", "Uncommon", "Rare","Rare","Rare", "Rare", "Rare", "Rare", "Rare", "Ultra Rare","Ultra Rare","Ultra Rare", "Ultra Rare", "Legendary"]
         let type = Math.floor(Math.random()*types.length)
 
         if(types[type] === "Common"){
-        var items = ["phone", "shoe", "textbook", "rock", ""]
+        var items = ["phone", "shoe", "textbook", "rock", "sand", "bronze", "bronze", "silver"]
         }else if(types[type] === "Uncommon"){
-        var items = ["computer"]
+        var items = ["computer", "lottery_ticket", "ruby", "platinum", "platinum"]
         }else if(types[type] === "Rare"){
-        var items = ["wallet"]
+        var items = ["wallet", "diamond"]
         }else if(types[type] === "Ultra Rare"){
-        var items = ["bitcoin"]
+        var items = ["bitcoin", "emerald"]
         }else if(types[type] === "Legendary"){
-        var items = ["gold", "taxpass", "Discord bot", ]
+        var items = ["gold", "taxpass", "super_computer", "dirt", "poopium"]
         }
         //console.log(items)
         let item = Math.floor(Math.random()*items.length)
@@ -3094,6 +3097,8 @@ client.on('message', msg=>{
 })
 
 client.on('message', msg=>{
+  if (msg.author.bot) return;
+    if (msg.channel.type === 'dm') return;
   if(msg.content.toLowerCase().startsWith("!sell")){
     function sell(){
     let args = msg.content.split(' ')
@@ -3134,6 +3139,8 @@ client.on('message', msg=>{
 })
 
 client.on('message', msg=>{
+  if (msg.author.bot) return;
+    if (msg.channel.type === 'dm') return;
   if(msg.content.toLowerCase() === "!shop"){
     shopHelp = fs.readFileSync('Shop.txt').toString()
     embed = new Discord.MessageEmbed()
@@ -3147,6 +3154,8 @@ client.on('message', msg=>{
 })
 
 client.on('message', msg=>{
+  if (msg.author.bot) return;
+    if (msg.channel.type === 'dm') return;
   if(msg.content.toLowerCase().startsWith("!buy")){
 
     function buy(){
@@ -3159,7 +3168,7 @@ client.on('message', msg=>{
       if(parseInt(shop[key])-1 < parseInt(balance)){
         let friendlyName = key.split('')
         friendlyName[0].toString().toUpperCase()
-        createEmbed("#80FF80", "Error", `You have purchased 1 ${friendlyName.join('')} for $${shop[key]}`)
+        createEmbed("#80FF80", "Economy - Buy", `You have purchased 1 ${friendlyName.join('')} for $${shop[key]}`)
         msg.channel.send(mainEmbed)
         writeSync(`User_Data/USER${msg.author.id}.txt`, (balance-shop[key]).toString())
         let data0= fs.readFileSync(`./UserJSON/USER${msg.author.id}.json`)
@@ -3188,77 +3197,28 @@ client.on('message', msg=>{
 })
 
 
-client.on('message', msg=>{
-  if(msg.content.toLowerCase() === "!time"){
-    var datetime = new Date()
 
-    let moment = require("moment-timezone")
-
-    let currentDate = datetime.toISOString()
-    var dateNow = moment(currentDate)
-
-
-
-    let TimeZones = `    
-    ${dateNow.tz("Pacific/Honolulu").format('h:mma - **z**') /* HST */}
-    ${dateNow.tz('America/Anchorage').format('h:mma - **z**') /* AKST */}
-    ${dateNow.tz('America/Los_Angeles').format('h:mma - **z**') /* PST */}
-    ${dateNow.tz('America/Phoenix').format('h:mma - **z**') /* MST */}
-    ${dateNow.tz('America/Menominee').format('h:mma - **z**') /* CST */}
-    ${dateNow.tz('America/New_York').format('h:mma - **z**') /* EST */}
-    ${dateNow.tz('Atlantic/Bermuda').format('h:mma - **z**') /* AST */} 
-    ${dateNow.tz('America/Argentina/Buenos_Aires').format('h:mma - ') /* ART */} **ART**
-    ${dateNow.tz('Atlantic/South_Georgia').format('h:mma - ') /* AT */}**AT** 
-    ${dateNow.tz('Africa/Abidjan').format('h:mma - **z**') /* GMT */}
-    ${dateNow.tz('Africa/Lagos').format('h:mma - **z') /* WAT */}/CET**
-    ${dateNow.tz('Asia/Nicosia').format('h:mma - **z**') /* EET */}
-    ${dateNow.tz('Europe/Moscow').format('h:mma - **z**') /* MSK */} 
-    ${dateNow.tz('Asia/Muscat').format('h:mma') /* AMT */} - **AMT**
-    ${dateNow.tz('Asia/Karachi').format('h:mma - **z**') /* PKT */} 
-    ${dateNow.tz('Asia/Almaty').format('h:mma - ') /* OMSK */}**OMSK** 
-    ${dateNow.tz('Asia/Krasnoyarsk').format('h:mma - ') /* KRAT */}**KRAT** 
-    ${dateNow.tz('Asia/Shanghai').format('h:mma - **z**') /* CST */}
-    ${dateNow.tz('Asia/Tokyo').format('h:mma - **z**') /* JST */}
-    ${dateNow.tz('Australia/Brisbane').format('h:mma - **z**') /* AEST */} 
-    ${dateNow.tz('Australia/Sydney').format('h:mma - **z**') /* AEDT */} 
-    ${dateNow.tz('Asia/Sakhalin').format('h:mma - ') /* SAKT */}**SAKT** 
-    ${dateNow.tz('Pacific/Auckland').format('h:mma - **z**') /* NZST */} `
-
-    //console.log(`${hours}:${minutes}`)
-    embed = new Discord.MessageEmbed()
-    .setTimestamp()
-    .setDescription(TimeZones)
-    //.setThumbnail("https://i.pinimg.com/originals/3f/82/40/3f8240fa1d16d0de6d4e7510b43b37ba.gif")
-    //.setImage("https://media1.tenor.com/images/bd030a7745e1ae72a6c27e13a23fbfdf/tenor.gif?itemid=14870978") //COOL RAINBOW
-    .setTitle("____Here are all the time zones:____")
-    .setColor("#C0C0C0")
-
-    msg.channel.send(embed)
-  }
-})
 
 
 client.on('message', msg=>{
+  if (msg.author.bot) return;
+    if (msg.channel.type === 'dm') return;
   if(msg.content.toLowerCase() === "!credits"){
     embed = new Discord.MessageEmbed()
     .setTitle("UselessBot Credits")
     .setDescription(`
-    ____Developers____
+    ____Developers and Testers____
     -***REMOVED***
-    -Efe Mertek
-
-    ____Artists____
-    -BingøPlus
+    -BryanAnimates
 
     ____Idea Team____
-    -Ryan Doesn't Animate
-    -The Random Boi
+    -RyanDoesn'tAnimate
+    -Minimochi
     -JoshyAnimates
 
     ____Honorable Mentions____
-    -BryanAnimates
-    -Cheezymations
-    -Mark Animations
+    
+    -Adz
     `)
     .setFooter("Mainly developed by ***REMOVED***.", "https://cdn.discordapp.com/avatars/472119139708829725/406b88d92b5d49bc929687c8b086dd1c.webp")
 
@@ -3271,7 +3231,11 @@ client.on('message', msg=>{
 
 
 client.on('message', msg=>{
-  if(msg.content.toLowerCase().startsWith("!inv")){
+  if (msg.author.bot) return;
+    if (msg.channel.type === 'dm') return;
+  if(msg.content.toLowerCase().startsWith("!inv") && msg.content.toLowerCase() !== "!invite"){
+
+    function viewINV(){
     if(msg.mentions.users.size){
       var taggedUser = msg.mentions.users.first()
     }else{
@@ -3288,6 +3252,7 @@ client.on('message', msg=>{
     ____Consumables____
 
     Crates: ${js["crate"]}
+    Lottery_Tickets: ${js["lottery_ticket"]}
 
 
     ____Boosts____
@@ -3301,8 +3266,10 @@ client.on('message', msg=>{
     ____Collectables____
 
     Bitcoin: ${js["bitcoin"]}
+    Dirt: ${js["dirt"]}
     Gold: ${js["gold"]}
     Rocks: ${js["rock"]}
+    Sand:${js["sand"]}
     Shoes: ${js["shoe"]}
     Textbooks: ${js["textbook"]}
     Wallets: ${js["wallet"]}
@@ -3316,6 +3283,7 @@ client.on('message', msg=>{
     Ruby - ${js["ruby"]}
     Diamond - ${js["diamond"]}
     Emerald - ${js["emerald"]}
+    Poopium - ${js["poopium"]}
     UselessStone - ${js["uselessstone"]}
     `)
 
@@ -3328,6 +3296,7 @@ client.on('message', msg=>{
     ____Consumables____
 
     Crates: 0
+    Lottery_Tickets: 0
 
 
     ____Boosts____
@@ -3341,8 +3310,10 @@ client.on('message', msg=>{
     ____Collectables____
     
     Bitcoin: 0
+    Dirt: 0
     Gold: 0
     Rocks: 0
+    Sand: 0
     Shoes: 0
     Textbooks: 0
     Wallets: 0
@@ -3356,16 +3327,24 @@ client.on('message', msg=>{
     Ruby - 0
     Diamond - 0
     Emerald - 0
+    Poopium - 0
     UselessStone - 0
     `)
 
       msg.channel.send(embed)
     }
+    }
+
+      setTimeout(function() {
+    viewINV()
+  }, 2000);
   }
 })
 
 
 client.on('message', msg=>{
+  if (msg.author.bot) return;
+    if (msg.channel.type === 'dm') return;
   if(msg.content.toLowerCase().startsWith("!autorole")){
     if(msg.member.hasPermission('MANAGE_ROLES')){
     if(msg.mentions.roles.size){
@@ -3412,3 +3391,58 @@ client.on('message', msg => {
     }
 	}
 });
+
+
+//Lottery
+client.on('message', msg=>{
+  if (msg.author.bot) return;
+    if (msg.channel.type === 'dm') return;
+  if(msg.content.toLowerCase().startsWith("!use lottery")){
+    function useLottery(){
+          if(fs.existsSync('UserJSON/USER'+msg.author.id+'.json')){
+
+                  let cratejson = JSON.parse(fs.readFileSync(`./UserJSON/USER${msg.author.id}.json`))
+      let cratecount = parseInt(cratejson["lottery_ticket"])
+        if(cratecount > 0){
+    var ranNumber = Math.floor(Math.random()*15000)
+    var ranValue = Math.floor(Math.random()*2)
+    if(ranValue === 1){
+    var result = "lost"
+  }else{
+    var result = "earned"
+  }
+createEmbed("#80FF80", "Economy - Lottery", `You have ${result} $${ranNumber}.`)
+
+msg.channel.send(mainEmbed)
+
+if(ranValue === "1"){
+      ranNumber *= -1
+    }
+                writeSync(`User_Data/USER${msg.author.id}.txt`, ranNumber.toString())
+          }else{
+                  createEmbed("#E5453D", "Error", `You don't have any lottery tickets.`)
+
+msg.channel.send(mainEmbed)
+          }
+    }else{
+      createEmbed("#E5453D", "Error", `An unknown error has occured.`)
+
+msg.channel.send(mainEmbed)
+    }
+}
+    setTimeout(function() {
+    useLottery()
+  }, 2000)
+}
+})
+
+
+client.on('message', msg=>{
+    if (msg.author.bot) return;
+    if (msg.channel.type === 'dm') return;
+
+    if(msg.content.toLowerCase().startsWith("!use super")){
+        
+    }
+  
+})

@@ -3,8 +3,9 @@
     "crate": 5000,
     "phone": 1000,
     "taxpass": 50000,
-    "gaming computer": 100000,
+    "super_computer": 100000,
     "robot": 200000,
+    "lottery_ticket": 5000,
 
     "bronze": 10000,
     "silver": 20000,
@@ -12,5 +13,6 @@
     "ruby": 100000,
     "diamond": 500000,
     "emerald": 1000000,
-    "uselessstone": 10000000
+    "poopium": 10000000,
+    "uselessstone": 100000000
 }

@@ -1,3 +1,10 @@
+____Version 0.9.0____
+
+-Removed !time command because of some problems
+-Fixed !invite showing inventory
+-
+
+
 ____Version 0.8.8____
 
 -Changed the join/leave card

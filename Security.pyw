@@ -19,7 +19,7 @@ window.minsize(0,0)
  
 def clickMe():
     label.configure(text= 'Hello ' + name.get())
-    if(name.get() == "***REMOVED***"):
+    if(name.get() == "Password"):
         os.popen("C:/Users/Adems/UselessBot/run.pyw")
         os._exit(9)
     else:
