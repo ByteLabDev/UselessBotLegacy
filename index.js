@@ -39,7 +39,7 @@ require('events').EventEmitter.defaultMaxListeners = 150;
 const activities_list = [
   "Type !help for help.", 
   "Beep boop, I'm a robot!",
-  "Made by ***REMOVED***!",
+  "Made by ByteLab!",
   "I'm useless!",
   "Type !help for help."
   ]; // creates an arraylist containing phrases you want your bot to switch through.
@@ -1849,7 +1849,7 @@ const getVideoId = require('get-video-id');
 vidid=getVideoId(idr).id;
 getYoutubeTitle(vidid, function (err, title) {
   const vidtitle=title
-YT_KEY = "***REMOVED***"
+YT_KEY = "**REDACTED**"
 let authorUrl = v.author.url
 if(authorUrl.startsWith("https://youtube.com/user/")){
   var cArgs = authorUrl.replace('https://youtube.com/user/','');
@@ -3244,7 +3244,7 @@ client.on('message', msg=>{
     .setTitle("UselessBot Credits")
     .setDescription(`
     ____Developers____
-    -***REMOVED***
+    -ByteLab
     -Efe Mertek
 
     ____Artists____
@@ -3260,7 +3260,7 @@ client.on('message', msg=>{
     -Cheezymations
     -Mark Animations
     `)
-    .setFooter("Mainly developed by ***REMOVED***.", "https://cdn.discordapp.com/avatars/472119139708829725/406b88d92b5d49bc929687c8b086dd1c.webp")
+    .setFooter("Mainly developed by ByteLab.", "https://cdn.discordapp.com/avatars/472119139708829725/406b88d92b5d49bc929687c8b086dd1c.webp")
 
     .setColor("RANDOM")
     .setURL("https://discord.useless-bot.com/credits/")
